@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="done">완료</string>
+    <string name="default_title">이미지를 선택해주세요.</string>
+</resources>

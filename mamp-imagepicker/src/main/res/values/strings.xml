@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MAMP Image Picker</string>
+    <string name="done">Done</string>
+    <string name="default_title">Please select image.</string>
+</resources>
