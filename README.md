@@ -28,6 +28,23 @@ dependencies {
 }
 ```
 
+Step 3. Manifest
+
+```
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<application
+        ...
+        <activity
+            ...
+            android:configChanges="keyboard|keyboardHidden|layoutDirection|orientation|screenLayout|screenSize">
+            ...
+        </activity>
+    </application>
+
+```
+
+
 How to use
 ====================
 
