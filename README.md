@@ -4,6 +4,7 @@
 
 ![Screenshot](https://github.com/mampvenom/MampImagePicker/blob/master/screenshot.gif?raw=true)
 
+
 # 설정
 
 ## 1. 프로젝트 빌드에 JitPack 저장소를 추가.
@@ -66,6 +67,7 @@ new MampImagePicker.Builder(this)
                 })
                 .create().show(getSupportFragmentManager());
 ```
+
 
 ## 3. 사용자 정의.
 
