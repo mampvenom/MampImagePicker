@@ -47,7 +47,7 @@ dependencies {
 
 1. 다중 선택.
 ```Java
-new MampImagePicker.Builder(getApplicationContext())
+new MampImagePicker.Builder(this)
                 .setMultiPickCallback(new MampImagePicker.MultiPickCallback() {
                     @Override
                     public void onMultiPick(List<Image> images) {
@@ -59,7 +59,7 @@ new MampImagePicker.Builder(getApplicationContext())
 
 2. 단일 선택.
 ```Java
-new MampImagePicker.Builder(getApplicationContext())
+new MampImagePicker.Builder(this)
                 .setSinglePickCallback(new MampImagePicker.SinglePickCallback() {
                     @Override
                     public void onSinglePick(Image image) {
