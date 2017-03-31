@@ -4,12 +4,10 @@
 
 ![Screenshot](https://github.com/mampvenom/MampImagePicker/blob/master/screenshot.gif?raw=true)
 
-Setup
+설정
 ====================
 
-Step 1. Add the JitPack repository to your build file.
-
-Add it in your root build.gradle at the end of repositories:
+1. 프로젝트 빌드에 JitPack 저장소를 추가.
 
 ```Groovy
 allprojects {
@@ -20,16 +18,15 @@ allprojects {
 }
 ```
 
-Step 2. Add the dependency
+2. dependencies 섹션에 추가.
 
 ```Groovy
 dependencies {
-	        compile 'com.github.mampvenom:MampImagePicker:1.0.0'
+	        compile 'com.github.mampvenom:MampImagePicker:1.0.1'
 }
 ```
 
-Step 3. Manifest
-
+3. Manifest 수정.
 ```
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -45,7 +42,7 @@ Step 3. Manifest
 ```
 
 
-How to use
+사용법
 ====================
 
 ```Java
