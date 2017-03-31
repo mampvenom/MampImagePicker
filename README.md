@@ -45,11 +45,24 @@ dependencies {
 사용법
 ====================
 
+1. 다중 선택.
 ```Java
 new MampImagePicker.Builder(getApplicationContext())
                 .setMultiPickCallback(new MampImagePicker.MultiPickCallback() {
                     @Override
                     public void onMultiPick(List<Image> images) {
+                        
+                    }
+                })
+                .create().show(getSupportFragmentManager());
+```
+
+2. 단일 선택.
+```Java
+new MampImagePicker.Builder(getApplicationContext())
+                .setSinglePickCallback(new MampImagePicker.SinglePickCallback() {
+                    @Override
+                    public void onSinglePick(Image image) {
                         
                     }
                 })
