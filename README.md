@@ -9,7 +9,7 @@
 
 ## 1. 프로젝트 빌드에 JitPack 저장소를 추가.
 
-```Groovy
+```Gradle
 allprojects {
 		repositories {
 			...
@@ -20,7 +20,7 @@ allprojects {
 
 ## 2. dependencies 섹션에 추가.
 
-```Groovy
+```Gradle
 dependencies {
 	        compile 'com.github.mampvenom:MampImagePicker:1.0.1'
 }
