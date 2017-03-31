@@ -73,7 +73,6 @@ new MampImagePicker.Builder(this)
 * `setPeekHeight(int height)`
 * `setPeekHeightRes(@DimenRes int resId)`
 ### 색상.
-* `setPeekHeightRes(@DimenRes int resId)`
 * `setDefaultTextColor(@ColorInt int color)`
 * `setDefaultTextColorRes(@ColorRes int resId)`
 * `setTitleColor(@ColorInt int color)`
