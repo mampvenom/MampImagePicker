@@ -12,11 +12,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.mamp.imagepicker.Image;
 import kr.co.mamp.imagepicker.MampImagePicker;
 import kr.co.mamp.imagepicker.adapter.ImageAdapter;
+import kr.co.mamp.imagepicker.loader.ImageLoader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     void createImagePicker() {
+        List<Image> images = new ArrayList<>();
+        ImageLoader.ImageCursor imageCursor = new ImageLoader.ImageCursor(this);
+        for (Image image : adapter.getImages()) {
+            Image newImage = imageCursor.fetchImage(image.getOriginal());
+            if (newImage != null) {
+                images.add(newImage);
+            }
+        }
         new MampImagePicker.Builder(getApplicationContext())
 //                .setSinglePickCallback(new MampImagePicker.SinglePickCallback() {
 //                    @Override
@@ -78,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                 })
-                .setCheckedImages(adapter.getImages())
+                .setCheckedImages(/*adapter.getImages()*/ images)
                 .create().show(getSupportFragmentManager());
     }
 }

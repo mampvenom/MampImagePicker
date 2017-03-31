@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageView;
 
+import kr.co.mamp.imagepicker.loader.ImageLoader;
+
 
 public class ImageViewer extends DialogFragment {
 
@@ -47,7 +49,7 @@ public class ImageViewer extends DialogFragment {
             Matrix matrix = new Matrix();
             matrix.setRotate(image.getOrientation());
 
-            String realPath = Image.getRealPathFromURI(getContext(), image.getOriginal());
+            String realPath = new ImageLoader.ImageCursor(getContext()).getRealPathFromUri(image.getOriginal());
             Bitmap original = BitmapFactory.decodeFile(realPath);
             if (original != null) {
                 Bitmap oriented = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
