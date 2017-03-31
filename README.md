@@ -27,7 +27,7 @@ dependencies {
 ```
 
 3. Manifest 수정.
-```
+```XML
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 <application
