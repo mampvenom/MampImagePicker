@@ -388,6 +388,11 @@ public class MampImagePicker extends BottomSheetDialogFragment
         @ColorInt
         int titleColor;
         /**
+         * 배경 색상.
+         */
+        @ColorInt
+        int backgroundColor;
+        /**
          * 타이틀.
          */
         String title;
@@ -480,6 +485,24 @@ public class MampImagePicker extends BottomSheetDialogFragment
          */
         public Builder setTitleColorRes(@ColorRes int resId) {
             titleColor = ContextCompat.getColor(context, resId);
+            return this;
+        }
+
+
+        /**
+         * 배경 색상 지정.
+         */
+        public Builder setBackgroundColor(@ColorInt int color) {
+            backgroundColor = color;
+            return this;
+        }
+
+
+        /**
+         * 배경 색상 지정.
+         */
+        public Builder setBackgroundColorRes(@ColorRes int resId) {
+            backgroundColor = ContextCompat.getColor(context, resId);
             return this;
         }
 
