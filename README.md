@@ -22,7 +22,7 @@ allprojects {
 
 ```Gradle
 dependencies {
-	        compile 'com.github.mampvenom:MampImagePicker:1.0.1'
+	        compile 'com.github.mampvenom:MampImagePicker:1.0.2'
 }
 ```
 
@@ -81,6 +81,10 @@ new MampImagePicker.Builder(this)
 * `setTitleColorRes(@ColorRes int resId)`
 * `setDoneColor(@ColorInt int color)`
 * `setDoneColorRes(@ColorRes int resId)`
+* `setBackgroundColor(@ColorInt int color)`
+* `setBackgroundColorRes(@ColorRes int resId)`
+* `setHeaderBackgroundColor(@ColorInt int color)`
+* `setHeaderBackgroundColorRes(@ColorRes int resId)`
 ### 텍스트.
 * `setTitle(String title)`
 * `setTitle(@StringRes int resId)`
