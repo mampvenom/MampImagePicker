@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -159,21 +160,20 @@ public class MampImagePicker extends BottomSheetDialogFragment
      * 뷰 초기화.
      */
     private void initView() {
+        // 배경 색상.
+        contentView.setBackgroundColor(builder.backgroundColor);
         Button doneBtn = (Button) contentView.findViewById(R.id.btn_done);
         TextView titleView = (TextView) contentView.findViewById(R.id.text_title);
         progress = contentView.findViewById(R.id.progress);
-        // 기본 텍스트 색상 변경.
-        if (builder.defaultTextColor != 0) {
-            doneBtn.setTextColor(builder.defaultTextColor);
-            titleView.setTextColor(builder.defaultTextColor);
-        }
-        // 완료 버튼 색상 변경.
-        if (builder.doneColor != 0) doneBtn.setTextColor(builder.doneColor);
-        // 타이틀 색상 변경.
-        if (builder.titleColor != 0) titleView.setTextColor(builder.titleColor);
-        // 완료 버튼 텍스트 변경.
+        // 헤더 색상.
+        contentView.findViewById(R.id.top).setBackgroundColor(builder.headerBackgroundColor);
+        // 완료 버튼 색상.
+        doneBtn.setTextColor(builder.doneColor);
+        // 타이틀 색상.
+        titleView.setTextColor(builder.titleColor);
+        // 완료 버튼 텍스트.
         if (!TextUtils.isEmpty(builder.doneText)) doneBtn.setText(builder.doneText);
-        // 타이틀 변경.
+        // 타이틀 텍스트.
         if (!TextUtils.isEmpty(builder.title)) titleView.setText(builder.title);
 
         // 완료 버튼 동작 설정.
@@ -373,25 +373,25 @@ public class MampImagePicker extends BottomSheetDialogFragment
          */
         int peekHeight = -1;
         /**
-         * 기본 텍스트 색상.
-         */
-        @ColorInt
-        int defaultTextColor;
-        /**
          * 완료 버튼 색상.
          */
         @ColorInt
-        int doneColor;
+        int doneColor = Color.BLACK;
         /**
          * 타이틀 색상.
          */
         @ColorInt
-        int titleColor;
+        int titleColor = Color.BLACK;
         /**
          * 배경 색상.
          */
         @ColorInt
-        int backgroundColor;
+        int backgroundColor = Color.LTGRAY;
+        /**
+         * 헤더 배경 색상.
+         */
+        @ColorInt
+        int headerBackgroundColor = Color.WHITE;
         /**
          * 타이틀.
          */
@@ -457,7 +457,8 @@ public class MampImagePicker extends BottomSheetDialogFragment
          * 기본 텍스트 색상 지정.
          */
         public Builder setDefaultTextColor(@ColorInt int color) {
-            defaultTextColor = color;
+            titleColor = color;
+            doneColor = color;
             return this;
         }
 
@@ -466,8 +467,7 @@ public class MampImagePicker extends BottomSheetDialogFragment
          * 기본 텍스트 색상 지정.
          */
         public Builder setDefaultTextColorRes(@ColorRes int resId) {
-            defaultTextColor = ContextCompat.getColor(context, resId);
-            return this;
+            return setDefaultTextColor(ContextCompat.getColor(context, resId));
         }
 
 
@@ -503,6 +503,24 @@ public class MampImagePicker extends BottomSheetDialogFragment
          */
         public Builder setBackgroundColorRes(@ColorRes int resId) {
             backgroundColor = ContextCompat.getColor(context, resId);
+            return this;
+        }
+
+
+        /**
+         * 배경 색상 지정.
+         */
+        public Builder setHeaderBackgroundColor(@ColorInt int color) {
+            headerBackgroundColor = color;
+            return this;
+        }
+
+
+        /**
+         * 배경 색상 지정.
+         */
+        public Builder setHeaderBackgroundColorRes(@ColorRes int resId) {
+            headerBackgroundColor = ContextCompat.getColor(context, resId);
             return this;
         }
 
