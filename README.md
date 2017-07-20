@@ -22,7 +22,7 @@ allprojects {
 
 ```Gradle
 dependencies {
-	        compile 'com.github.mampvenom:MampImagePicker:1.0.3'
+	        compile 'com.github.mampvenom:MampImagePicker:1.0.4'
 }
 ```
 
