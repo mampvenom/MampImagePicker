@@ -10,6 +10,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
+import java.io.File;
+
 import kr.co.mamp.imagepicker.loader.ImageLoader;
 
 public class Image {
@@ -92,6 +94,22 @@ public class Image {
                 }
             }
         }
+    }
+
+
+    public File getOriginalFile(Context context) {
+        return getFile(context, original);
+    }
+
+
+    public File getThumbnailFile(Context context) {
+        return getFile(context, thumbnail);
+    }
+
+
+    private File getFile(Context context, Uri uri) {
+        String realPath = new ImageLoader.ImageCursor(context).getRealPathFromUri(uri);
+        return new File(realPath);
     }
 
 }
