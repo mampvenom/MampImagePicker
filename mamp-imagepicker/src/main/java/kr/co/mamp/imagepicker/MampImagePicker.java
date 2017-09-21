@@ -287,11 +287,16 @@ public class MampImagePicker extends BottomSheetDialogFragment
         if (intent.resolveActivity(getContext().getPackageManager()) != null) {
             try {
                 File file = createCameraFile();
-                Uri cameraUri =
-                        FileProvider
-                                .getUriForFile(getContext(),
-                                        getContext().getPackageName() + ".provider",
-                                        file);
+                Uri cameraUri;
+                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
+                    cameraUri = Uri.fromFile(file);
+                } else {
+                    cameraUri =
+                            FileProvider
+                                    .getUriForFile(getContext(),
+                                            getContext().getPackageName() + ".provider",
+                                            file);
+                }
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, cameraUri);
                 startActivityForResult(intent, REQ_CAMERA);
             } catch (IOException e) {
