@@ -218,6 +218,16 @@ public class MampImagePicker extends BottomSheetDialogFragment
     public void show(FragmentManager fragmentManager) {
         fragmentManager.beginTransaction()
                 .add(this, getTag())
+                .commit();
+    }
+
+
+    /**
+     * 다이얼로그 표시하기.
+     */
+    public void showAllowingStateLoss(FragmentManager fragmentManager) {
+        fragmentManager.beginTransaction()
+                .add(this, getTag())
                 .commitAllowingStateLoss();
     }
 
@@ -655,7 +665,8 @@ public class MampImagePicker extends BottomSheetDialogFragment
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
                     && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 throw new RuntimeException("Missing required WRITE_EXTERNAL_STORAGE permission.");
-            } else if (singlePickCallback == null && multiPickCallback == null) {
+            }
+            if (singlePickCallback == null && multiPickCallback == null) {
                 throw new RuntimeException("Missing required single or multi pick callback.");
             }
             MampImagePicker picker = new MampImagePicker();
