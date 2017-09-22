@@ -216,6 +216,14 @@ public class MampImagePicker extends BottomSheetDialogFragment
 
 
     /**
+     * 빌더를 잃을 경우 다시 설정해줌.
+     */
+    public void setBuilder(Builder builder) {
+        this.builder = builder;
+    }
+
+
+    /**
      * 다이얼로그 표시하기.
      */
     public void show(FragmentManager fragmentManager) {
