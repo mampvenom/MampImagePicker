@@ -101,3 +101,49 @@ new MampImagePicker.Builder(this)
 * `setOnLongClickListener(LongClickCallback callback)`
 ### 미리 지정된 이미지들.
 * `setCheckedImages(List<Image> checkedImages)`
+
+
+## 4. 촬영 후 NullPointerException 대처
+`in Fragment`
+```Java
+public class MyTabFragment extends Fragment {
+
+    /**
+     * 생성된 MampImagePicker 확인 후 다시 빌더 설정해줌.
+     */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Fragment fragment = getFragmentManager().findFragmentByTag(MampImagePicker.TAG);
+        if (fragment != null && fragment instanceof MampImagePicker) {
+            ((MampImagePicker) fragment).setBuilder(getBuilder());
+        }
+        return inflater.inflate(R.layout.fragment_layout, container, false);
+    }
+    
+    /**
+     * 클릭 시 MampImagePicker 생성.
+     */
+    @Override
+    public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getBuilder().create().show(getFragmentManager());
+            }
+        });
+    }
+    
+    /**
+     * 빌더.
+     */
+    private MampImagePicker.Builder getBuilder() {
+        return new MampImagePicker.Builder(getContext())
+                .setSinglePickCallback(new MampImagePicker.SinglePickCallback() {
+                    @Override
+                    public void onSinglePick(Image image) {
+                        
+                    }
+                });
+    }
+}
+```
