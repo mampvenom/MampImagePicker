@@ -53,6 +53,9 @@ public class MampImagePicker extends BottomSheetDialogFragment
         implements LoaderManager.LoaderCallbacks<List<Image>> {
 
 
+    public static final String TAG = "MampImagePicker";
+
+
     /**
      * 다이얼로그 커스텀 뷰.
      */
@@ -217,7 +220,7 @@ public class MampImagePicker extends BottomSheetDialogFragment
      */
     public void show(FragmentManager fragmentManager) {
         fragmentManager.beginTransaction()
-                .add(this, getTag())
+                .add(this, TAG)
                 .commit();
     }
 
@@ -227,7 +230,7 @@ public class MampImagePicker extends BottomSheetDialogFragment
      */
     public void showAllowingStateLoss(FragmentManager fragmentManager) {
         fragmentManager.beginTransaction()
-                .add(this, getTag())
+                .add(this, TAG)
                 .commitAllowingStateLoss();
     }
 
